@@ -5,10 +5,10 @@ import java.io.Serializable;
 public class Cita implements Serializable {
 
     private int id;
-    private String fecha;       // Ej: "28/05/2025"
-    private String hora;        // Ej: "10:30"
+    private String fecha;       
+    private String hora;       
     private String motivo;
-    private String estado;      // "Pendiente", "Atendida", "Cancelada"
+    private String estado;      
     private int idMascota;
     private int idVeterinario;
 
