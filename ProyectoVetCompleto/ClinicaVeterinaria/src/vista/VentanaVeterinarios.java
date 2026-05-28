@@ -23,10 +23,9 @@ public class VentanaVeterinarios extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 15, 15, 15));
         panel.setBackground(Color.WHITE);
 
-        // ── NAVBAR ──
         JPanel navbar = crearNavbar();
 
-        // ── FORMULARIO ──
+        
         JPanel formulario = new JPanel(new GridLayout(4, 2, 8, 8));
         formulario.setBackground(Color.WHITE);
         formulario.setBorder(BorderFactory.createTitledBorder("Registrar veterinario"));
@@ -47,7 +46,6 @@ public class VentanaVeterinarios extends JFrame {
         formulario.add(new JLabel());
         formulario.add(btnGuardar);
 
-        // ── TABLA ──
         String[] columnas = {"ID", "Nombre", "Especialidad", "Teléfono"};
         modeloTabla = new DefaultTableModel(columnas, 0) {
             public boolean isCellEditable(int r, int c) { return false; }
@@ -61,7 +59,6 @@ public class VentanaVeterinarios extends JFrame {
         JScrollPane scroll = new JScrollPane(tabla);
         scroll.setBorder(BorderFactory.createTitledBorder("Veterinarios registrados"));
 
-        // ── BOTÓN ELIMINAR ──
         JButton btnEliminar = new JButton("Eliminar seleccionado");
         btnEliminar.setBackground(new Color(231, 76, 60));
         btnEliminar.setForeground(Color.WHITE);
@@ -84,7 +81,6 @@ public class VentanaVeterinarios extends JFrame {
         panelEliminar.setBackground(Color.WHITE);
         panelEliminar.add(btnEliminar);
 
-        // ── CENTRO ──
         JPanel centro = new JPanel(new BorderLayout(10, 10));
         centro.setBackground(Color.WHITE);
         centro.add(formulario, BorderLayout.NORTH);
