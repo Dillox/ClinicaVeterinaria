@@ -6,10 +6,10 @@ public class Mascota implements Serializable {
 
     private int id;
     private String nombre;
-    private String especie;   // Ej: Perro, Gato, Ave
+    private String especie;   
     private String raza;
     private int edad;
-    private int idDuenio;     // Guarda el id del dueño al que pertenece
+    private int idDuenio;    
 
     public Mascota(int id, String nombre, String especie, String raza, int edad, int idDuenio) {
         this.id = id;
