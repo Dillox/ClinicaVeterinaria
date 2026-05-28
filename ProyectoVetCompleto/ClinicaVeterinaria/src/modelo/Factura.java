@@ -8,8 +8,8 @@ public class Factura implements Serializable {
     private String fecha;
     private int idConsulta;
     private int idMascota;
-    private double costoConsulta;    // Consulta base
-    private double costoExamenes;    // Laboratorio
+    private double costoConsulta;    
+    private double costoExamenes;    
     private double costoMedicamentos;
     private String detalleMedicamentos;
 
@@ -35,7 +35,6 @@ public class Factura implements Serializable {
     public double getCostoMedicamentos() { return costoMedicamentos; }
     public String getDetalleMedicamentos() { return detalleMedicamentos; }
 
-    // Total = suma de los tres rubros
     public double getTotal() {
         return costoConsulta + costoExamenes + costoMedicamentos;
     }
