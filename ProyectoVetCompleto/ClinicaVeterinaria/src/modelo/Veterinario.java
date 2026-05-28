@@ -6,7 +6,7 @@ public class Veterinario implements Serializable {
 
     private int id;
     private String nombre;
-    private String especialidad;  // Ej: Cirugía, Dermatología, General
+    private String especialidad;  
     private String telefono;
 
     public Veterinario(int id, String nombre, String especialidad, String telefono) {
