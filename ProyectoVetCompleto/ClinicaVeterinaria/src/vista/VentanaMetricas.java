@@ -30,7 +30,7 @@ public class VentanaMetricas extends JFrame {
 
         panel.add(crearNavbar(), BorderLayout.NORTH);
 
-        // ── FILTRO MES ──
+        
         JPanel filtro = new JPanel(new FlowLayout(FlowLayout.LEFT));
         filtro.setBackground(Color.WHITE);
         filtro.setBorder(BorderFactory.createTitledBorder("Filtrar por mes"));
@@ -45,7 +45,7 @@ public class VentanaMetricas extends JFrame {
         btnGenerar.addActionListener(e -> generarMetricas());
         filtro.add(btnGenerar);
 
-        // ── TABLAS ──
+        
         modeloPatologias = new DefaultTableModel(new String[]{"Diagnóstico / Patología", "Casos"}, 0) {
             public boolean isCellEditable(int r, int c) { return false; }
         };
@@ -66,7 +66,7 @@ public class VentanaMetricas extends JFrame {
         JScrollPane scrollE = new JScrollPane(tablaEspecies);
         scrollE.setBorder(BorderFactory.createTitledBorder("Afluencia por especie"));
 
-        // ── RESUMEN TEXTO ──
+       
         areaResumen = new JTextArea(4, 40);
         areaResumen.setEditable(false);
         areaResumen.setFont(new Font("Monospaced", Font.PLAIN, 12));
@@ -74,7 +74,6 @@ public class VentanaMetricas extends JFrame {
         areaResumen.setBorder(BorderFactory.createTitledBorder("Resumen"));
         JScrollPane scrollR = new JScrollPane(areaResumen);
 
-        // Layout de las dos tablas lado a lado
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, scrollP, scrollE);
         split.setResizeWeight(0.5);
         split.setDividerLocation(320);
@@ -88,17 +87,17 @@ public class VentanaMetricas extends JFrame {
 
         panel.add(centro, BorderLayout.CENTER);
         add(panel);
-        generarMetricas(); // cargar al abrir
+        generarMetricas(); 
     }
 
     private void generarMetricas() {
         String mes = txtMes.getText().trim();
 
-        // ── Patologías ──
+       
         Map<String, Integer> patologias = gestor.patologiasFrecuentes(mes);
         modeloPatologias.setRowCount(0);
 
-        // Ordenar de mayor a menor
+       
         List<Map.Entry<String, Integer>> listaP = new ArrayList<>(patologias.entrySet());
         listaP.sort((a, b) -> b.getValue() - a.getValue());
         for (Map.Entry<String, Integer> e : listaP) {
@@ -106,7 +105,7 @@ public class VentanaMetricas extends JFrame {
             modeloPatologias.addRow(new Object[]{diag, e.getValue()});
         }
 
-        // ── Afluencia por especie ──
+       
         Map<String, Integer> especies = gestor.afluenciaPorEspecie(mes);
         modeloEspecies.setRowCount(0);
         List<Map.Entry<String, Integer>> listaE = new ArrayList<>(especies.entrySet());
@@ -115,7 +114,7 @@ public class VentanaMetricas extends JFrame {
             modeloEspecies.addRow(new Object[]{e.getKey(), e.getValue()});
         }
 
-        // ── Resumen ──
+        
         int totalConsultas = gestor.listarConsultas().size();
         int totalCitas     = gestor.listarCitas().size();
         double totalFacturado = gestor.listarFacturas().stream()
@@ -156,6 +155,6 @@ public class VentanaMetricas extends JFrame {
         else if (destino.contains("Consultas"))    { new VentanaConsultas().setVisible(true);    dispose(); }
         else if (destino.contains("Citas"))        { new VentanaCitas().setVisible(true);        dispose(); }
         else if (destino.contains("Facturación"))  { new VentanaFacturacion().setVisible(true);  dispose(); }
-        else if (destino.contains("Métricas"))     { /* ya estamos aquí */ }
+        else if (destino.contains("Métricas"))     {  }
     }
 }
