@@ -29,10 +29,10 @@ public class VentanaCitas extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 15, 15, 15));
         panel.setBackground(Color.WHITE);
 
-        // ── NAVBAR ──
+       
         panel.add(crearNavbar(), BorderLayout.NORTH);
 
-        // ── FORMULARIO ──
+        
         JPanel formulario = new JPanel(new GridLayout(7, 2, 8, 8));
         formulario.setBackground(Color.WHITE);
         formulario.setBorder(BorderFactory.createTitledBorder("Nueva cita"));
@@ -58,7 +58,7 @@ public class VentanaCitas extends JFrame {
         btnGuardar.addActionListener(e -> guardarCita());
         formulario.add(new JLabel()); formulario.add(btnGuardar);
 
-        // ── TABLA ──
+      
         String[] columnas = {"ID", "Fecha", "Hora", "Mascota", "Veterinario", "Motivo", "Estado"};
         modeloTabla = new DefaultTableModel(columnas, 0) {
             public boolean isCellEditable(int r, int c) { return false; }
