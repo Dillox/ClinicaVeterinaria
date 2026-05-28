@@ -23,10 +23,9 @@ public class VentanaMascotas extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 15, 15, 15));
         panel.setBackground(Color.WHITE);
 
-        // ── NAVBAR ──
         JPanel navbar = crearNavbar();
 
-        // ── FORMULARIO ──
+     
         JPanel formulario = new JPanel(new GridLayout(6, 2, 8, 8));
         formulario.setBackground(Color.WHITE);
         formulario.setBorder(BorderFactory.createTitledBorder("Registrar nueva mascota"));
@@ -51,7 +50,7 @@ public class VentanaMascotas extends JFrame {
         formulario.add(new JLabel());
         formulario.add(btnGuardar);
 
-        // ── TABLA ──
+
         String[] columnas = {"ID", "Nombre", "Especie", "Raza", "Edad", "ID Dueño"};
         modeloTabla = new DefaultTableModel(columnas, 0) {
             public boolean isCellEditable(int r, int c) { return false; }
@@ -65,7 +64,7 @@ public class VentanaMascotas extends JFrame {
         JScrollPane scroll = new JScrollPane(tabla);
         scroll.setBorder(BorderFactory.createTitledBorder("Mascotas registradas"));
 
-        // ── BOTÓN ELIMINAR ──
+
         JButton btnEliminar = new JButton("Eliminar seleccionado");
         btnEliminar.setBackground(new Color(231, 76, 60));
         btnEliminar.setForeground(Color.WHITE);
@@ -87,8 +86,8 @@ public class VentanaMascotas extends JFrame {
         JPanel panelEliminar = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         panelEliminar.setBackground(Color.WHITE);
         panelEliminar.add(btnEliminar);
+    
 
-        // ── CENTRO ──
         JPanel centro = new JPanel(new BorderLayout(10, 10));
         centro.setBackground(Color.WHITE);
         centro.add(formulario, BorderLayout.NORTH);
