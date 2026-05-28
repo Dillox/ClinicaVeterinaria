@@ -30,7 +30,7 @@ public class VentanaFacturacion extends JFrame {
 
         panel.add(crearNavbar(), BorderLayout.NORTH);
 
-        // ── FORMULARIO ──
+     
         JPanel formulario = new JPanel(new GridLayout(7, 2, 8, 8));
         formulario.setBackground(Color.WHITE);
         formulario.setBorder(BorderFactory.createTitledBorder("Nueva factura"));
@@ -47,12 +47,12 @@ public class VentanaFacturacion extends JFrame {
         formulario.add(new JLabel("Costo medicamentos ($):"));    formulario.add(txtCostoMedicamentos);
         formulario.add(new JLabel("Detalle medicamentos:"));      formulario.add(txtDetalleMedicamentos);
 
-        // Etiqueta de total en tiempo real
+       
         JLabel lblTotal = new JLabel("Total estimado: $0.00");
         lblTotal.setFont(new Font("Arial", Font.BOLD, 13));
         lblTotal.setForeground(new Color(39, 174, 96));
 
-        // Actualizar total al cambiar cualquier campo
+       
         javax.swing.event.DocumentListener dl = new javax.swing.event.DocumentListener() {
             public void insertUpdate(javax.swing.event.DocumentEvent e)  { actualizarTotal(lblTotal); }
             public void removeUpdate(javax.swing.event.DocumentEvent e)  { actualizarTotal(lblTotal); }
@@ -71,7 +71,7 @@ public class VentanaFacturacion extends JFrame {
         btnGuardar.addActionListener(e -> guardarFactura());
         formulario.add(btnGuardar);
 
-        // ── TABLA ──
+
         String[] columnas = {"ID", "Fecha", "ID Consulta", "Mascota",
                              "Consulta $", "Exámenes $", "Medicamentos $", "Total $"};
         modeloTabla = new DefaultTableModel(columnas, 0) {
@@ -85,7 +85,6 @@ public class VentanaFacturacion extends JFrame {
         JScrollPane scroll = new JScrollPane(tabla);
         scroll.setBorder(BorderFactory.createTitledBorder("Facturas emitidas"));
 
-        // ── BOTÓN VER DETALLE ──
         JButton btnDetalle = new JButton("Ver detalle");
         btnDetalle.setBackground(new Color(52, 152, 219));
         btnDetalle.setForeground(Color.WHITE);
