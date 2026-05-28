@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class Consulta implements Serializable {
 
     private int id;
-    private String fecha;         // Ej: "21/05/2025"
+    private String fecha;         
     private String diagnostico;
     private String tratamiento;
-    private int idMascota;        // A qué mascota se atendió
-    private int idVeterinario;    // Quién la atendió
+    private int idMascota;        
+    private int idVeterinario;   
 
     public Consulta(int id, String fecha, String diagnostico, String tratamiento, int idMascota, int idVeterinario) {
         this.id = id;
