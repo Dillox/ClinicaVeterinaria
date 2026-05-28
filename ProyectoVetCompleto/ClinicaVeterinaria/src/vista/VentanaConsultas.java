@@ -26,10 +26,8 @@ public class VentanaConsultas extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(10, 15, 15, 15));
         panel.setBackground(Color.WHITE);
 
-        // ── NAVBAR ──
         JPanel navbar = crearNavbar();
 
-        // ── FORMULARIO ──
         JPanel formulario = new JPanel(new GridLayout(6, 2, 8, 8));
         formulario.setBackground(Color.WHITE);
         formulario.setBorder(BorderFactory.createTitledBorder("Nueva consulta"));
@@ -68,7 +66,6 @@ public class VentanaConsultas extends JFrame {
         JScrollPane scroll = new JScrollPane(tabla);
         scroll.setBorder(BorderFactory.createTitledBorder("Historial de consultas"));
 
-        // ── BOTÓN ELIMINAR ──
         JButton btnEliminar = new JButton("Eliminar seleccionado");
         btnEliminar.setBackground(new Color(192, 57, 43));
         btnEliminar.setForeground(Color.WHITE);
