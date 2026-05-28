@@ -21,10 +21,7 @@ public class GestorClinica {
     private static final String ARCHIVO_CITAS        = "citas.dat";
     private static final String ARCHIVO_FACTURAS     = "facturas.dat";
 
-    // ─────────────────────────────────────────────
-    //  MÉTODOS GENÉRICOS DE SERIALIZACIÓN
-    // ─────────────────────────────────────────────
-
+ 
     public void guardarLista(ArrayList<?> lista, String archivo) {
         try (ObjectOutputStream oos = new ObjectOutputStream(
                 new FileOutputStream(archivo))) {
@@ -45,9 +42,7 @@ public class GestorClinica {
         }
     }
 
-    // ─────────────────────────────────────────────
-    //  DUEÑOS
-    // ─────────────────────────────────────────────
+  
 
     public ArrayList<Duenio> listarDuenios() { return cargarLista(ARCHIVO_DUENIOS); }
 
@@ -70,9 +65,7 @@ public class GestorClinica {
 
     public void guardarListaDuenios(ArrayList<Duenio> lista) { guardarLista(lista, ARCHIVO_DUENIOS); }
 
-    // ─────────────────────────────────────────────
-    //  MASCOTAS
-    // ─────────────────────────────────────────────
+  
 
     public ArrayList<Mascota> listarMascotas() { return cargarLista(ARCHIVO_MASCOTAS); }
 
@@ -101,9 +94,7 @@ public class GestorClinica {
 
     public void guardarListaMascotas(ArrayList<Mascota> lista) { guardarLista(lista, ARCHIVO_MASCOTAS); }
 
-    // ─────────────────────────────────────────────
-    //  VETERINARIOS
-    // ─────────────────────────────────────────────
+
 
     public ArrayList<Veterinario> listarVeterinarios() { return cargarLista(ARCHIVO_VETERINARIOS); }
 
@@ -121,10 +112,7 @@ public class GestorClinica {
 
     public void guardarListaVeterinarios(ArrayList<Veterinario> lista) { guardarLista(lista, ARCHIVO_VETERINARIOS); }
 
-    // ─────────────────────────────────────────────
-    //  CONSULTAS
-    // ─────────────────────────────────────────────
-
+   
     public ArrayList<Consulta> listarConsultas() { return cargarLista(ARCHIVO_CONSULTAS); }
 
     public void registrarConsulta(Consulta c) {
@@ -147,9 +135,7 @@ public class GestorClinica {
 
     public void guardarListaConsultas(ArrayList<Consulta> lista) { guardarLista(lista, ARCHIVO_CONSULTAS); }
 
-    // ─────────────────────────────────────────────
-    //  CITAS
-    // ─────────────────────────────────────────────
+
 
     public ArrayList<Cita> listarCitas() { return cargarLista(ARCHIVO_CITAS); }
 
@@ -167,9 +153,6 @@ public class GestorClinica {
 
     public void guardarListaCitas(ArrayList<Cita> lista) { guardarLista(lista, ARCHIVO_CITAS); }
 
-    // ─────────────────────────────────────────────
-    //  FACTURAS
-    // ─────────────────────────────────────────────
 
     public ArrayList<Factura> listarFacturas() { return cargarLista(ARCHIVO_FACTURAS); }
 
@@ -187,16 +170,11 @@ public class GestorClinica {
 
     public void guardarListaFacturas(ArrayList<Factura> lista) { guardarLista(lista, ARCHIVO_FACTURAS); }
 
-    // ─────────────────────────────────────────────
-    //  MÉTRICAS CLÍNICAS
-    // ─────────────────────────────────────────────
 
-    // Devuelve un mapa: diagnóstico -> cantidad de veces que aparece
+
     public Map<String, Integer> patologiasFrecuentes(String mes) {
         Map<String, Integer> mapa = new HashMap<>();
         for (Consulta c : listarConsultas()) {
-            // La fecha está en formato yyyy-MM-dd o dd/MM/yyyy
-            // Comprobamos si el mes coincide como substring
             if (mes == null || mes.isBlank() || c.getFecha().contains(mes)) {
                 String diag = c.getDiagnostico().trim().toLowerCase();
                 mapa.put(diag, mapa.getOrDefault(diag, 0) + 1);
@@ -205,7 +183,6 @@ public class GestorClinica {
         return mapa;
     }
 
-    // Devuelve un mapa: especie -> cantidad de mascotas atendidas
     public Map<String, Integer> afluenciaPorEspecie(String mes) {
         Map<String, Integer> mapa = new HashMap<>();
         for (Consulta c : listarConsultas()) {
